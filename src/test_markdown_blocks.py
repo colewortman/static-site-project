@@ -10,6 +10,7 @@ from markdown_blocks import (
     block_type_olist,
     block_type_ulist,
     block_type_quote,
+    extract_title,
 )
 
 
@@ -137,6 +138,24 @@ this is paragraph text
         self.assertEqual(
             html,
             "<div><blockquote>This is a blockquote block</blockquote><p>this is paragraph text</p></div>",
+        )
+    
+    def test_extract_title(self):
+        md = """
+# Tolkien Fan Club
+
+**I like Tolkien**. Read my [first post here](/majesty) (sorry the link doesn't work yet)
+
+> All that is gold does not glitter
+
+## Reasons I like Tolkien
+
+* You can spend years studying the legendarium and still not understand its depths
+* It created an entirely new genre of fantasy
+""" 
+        self.assertEqual(
+            "Tolkien Fan Club",
+            extract_title(md)
         )
 
 
