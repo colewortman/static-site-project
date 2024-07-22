@@ -2,7 +2,7 @@ import os
 
 from textnode import TextNode
 from copystatic import copy_contents
-from site_generator import generate_page
+from site_generator import generate_pages_recursive
 
 def main():
     new_node = TextNode('this is a text node', 'bold', 'https://www.boot.dev')
@@ -11,6 +11,6 @@ def main():
     copy_contents("/home/colewortman/workspace/github.com/colewortman/static-site-project/static",
      "/home/colewortman/workspace/github.com/colewortman/static-site-project/public")
 
-    generate_page("content/index.md", "template.html", "public/index.html")
+    generate_pages_recursive("content/", "template.html", "public/")
 
 main()
