@@ -1,3 +1,6 @@
+import os
+import shutil
+
 def copy_contents(copy_path, target_path):
     if os.path.exists(target_path):
         shutil.rmtree(target_path)
@@ -13,5 +16,3 @@ def copy_contents(copy_path, target_path):
             copy_contents(source_item_path, target_item_path)
         
         print(f"Copied {source_item_path} to {target_item_path}")
-
-copy_contents("/home/colewortman/workspace/github.com/colewortman/static-site-project/static", "/home/colewortman/workspace/github.com/colewortman/static-site-project/public")
